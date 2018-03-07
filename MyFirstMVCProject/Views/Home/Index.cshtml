@@ -1,0 +1,329 @@
+﻿@model MyFirstMVCProject.Models.TrainingSurveryViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true)
+
+    @* anju.s.raj 1/12/2018: ng-app and ng-controller added for rzSlider *@
+    <fieldset ng-app="rzSliderApp" ng-controller="rzSliderCtrl">
+        <div class="row" style="margin-top:0px;">
+            <div class="col-md-12 dvAccentureBannerBackground">
+                <img src="~/Images/accenture.png" class="dvHeaderImage" />
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:30px;">
+            <div class="col-md-2">
+                <label id="lblSessionName" style="font-size:medium">Session:</label>
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.SessionId, (SelectList)ViewBag.sessionlist, "--Select--", new { @class = "form-control" })
+
+            </div>
+
+        </div>
+        <div class="row" style="margin-top:30px;">
+            <div class="col-md-2">
+                <label id="lblName" style="font-size:medium">Name(Optional):</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.ParticipantName)
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-12">
+                <label id="lblInstructions" style="font-size:medium">General Instructions: Your feedback is important and will help us improve future courses. Please choose the answer that best describes your agreement with the statement below, and provide additional information where requested.</label>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <label id="lblQuestionID1" class="col-md-1" style="font-size:medium">1</label>
+            <label id="lblQuestionDescription" class="col-md-11" style="font-size:medium">I understand my role in contributing to quality outcomes for Accenture and our clients.</label>
+        </div>
+
+        @* anju.s.raj 1/12/2018: Added rzSlider Control for Question1 *@
+        <div class="col-md-offset-1 col-md-11 margin-top margin-bottom">
+            <rzslider class="with-legend"
+                      rz-slider-bind="slider_ticks_legend.value"
+                      rz-slider-model="question1"
+                      rz-slider-options="slider_ticks_legend.options"></rzslider>
+            <input type="text" id="rangeQuestion1" ng-model="question1" class="hide" />
+            @*<label id="lblQuestion1StronglyAgree" class="col-md-1" style="font-size:medium">Strongly Disgree</label>
+                <input id="rangeQuestion1" type="range" min="0" max="5" value="0" class="col-md-10" style="width:80%">
+                <label id="lblQuestion1StronglyDisagree" class="col-md-1" style="font-size:medium;align-content:flex-end">Strogly Agree</label>*@
+            @Html.HiddenFor(Model => Model.Question1)
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <label id="lblQuestionID2" class="col-md-1" style="font-size:medium">2</label>
+            <label id="lblQuestionDescription2" class="col-md-11" style="font-size:medium">I understand how to use the Quality Alignment Model to evaluate alignment among the elements of a deal.</label>
+        </div>
+
+        @* anju.s.raj 1/12/2018: Added rzSlider Control for Question2 *@
+        <div class="col-md-offset-1 col-md-11 margin-top margin-bottom">
+            @*<label id="lblQuestion2StronglyAgree" class="col-md-1" style="font-size:medium">Strongly Disgree</label>
+                <input id="rangeQuestion2" type="range" min="0" max="5" value="0" class="col-md-10" style="width:80%">
+                <label id="lblQuestion2StronglyDisagree" class="col-md-1" style="font-size:medium;align-content:flex-end">Strogly Agree</label>*@
+            <rzslider class="with-legend"
+                      rz-slider-bind="slider_ticks_legend.value"
+                      rz-slider-model="question2"
+                      rz-slider-options="slider_ticks_legend.options"></rzslider>
+            <input id="rangeQuestion2" type="text" ng-model="question2" class="hide" />
+            @Html.HiddenFor(Model => Model.Question2)
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <label id="lblQuestionID3" class="col-md-1" style="font-size:medium">3</label>
+            <label id="lblQuestionDescription3" class="col-md-11" style="font-size:medium">I will be able to recognize common risks that contribute to negative EAC adjustments.</label>
+        </div>
+
+        @* anju.s.raj 1/12/2018: Added rzSlider Control for Question3 *@
+        <div class="col-md-offset-1 col-md-11 margin-top margin-bottom">
+            @*<label id="lblQuestion3StronglyAgree" class="col-md-1" style="font-size:medium">Strongly Disgree</label>
+                <input id="rangeQuestion3" type="range" min="0" max="5" value="0" class="col-md-10" style="width:80%">
+                <label id="lblQuestion3StronglyDisagree" class="col-md-1" style="font-size:medium;align-content:flex-end">Strogly Agree</label>*@
+            <rzslider class="with-legend"
+                      rz-slider-bind="slider_ticks_legend.value"
+                      rz-slider-model="question3"
+                      rz-slider-options="slider_ticks_legend.options"></rzslider>
+            <input id="rangeQuestion3" type="text" ng-model="question3" class="hide" />
+            @Html.HiddenFor(Model => Model.Question3)
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <label id="lblQuestionID4" class="col-md-1" style="font-size:medium">4</label>
+            <label id="lblQuestionDescription4" class="col-md-11" style="font-size:medium">The content of today’s workshop was at the right level to improve my knowledge and skills.</label>
+        </div>
+
+        @* anju.s.raj 1/12/2018: Added rzSlider Control for Question4 *@
+        <div class="col-md-offset-1 col-md-11 margin-top margin-bottom">
+            @*<label id="lblQuestion4StronglyAgree" class="col-md-1" style="font-size:medium">Strongly Disagree</label>
+                <input id="rangeQuestion4" type="range" min="0" max="5" value="0" class="col-md-10" style="width:80%">
+                <label id="lblQuestion4StronglyDisagree" class="col-md-1" style="font-size:medium;align-content:flex-end">Strogly Agree</label>*@
+            <rzslider class="with-legend"
+                      rz-slider-bind="slider_ticks_legend.value"
+                      rz-slider-model="question4"
+                      rz-slider-options="slider_ticks_legend.options"></rzslider>
+            <input id="rangeQuestion4" type="text" ng-model="question4" class="hide" />
+            @Html.HiddenFor(Model => Model.Question4)
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <label id="lblQuestionID5" class="col-md-1" style="font-size:medium">5</label>
+            <label id="lblQuestionDescription5" class="col-md-11" style="font-size:medium">Overall, I was satisfied with this workshop.</label>
+        </div>
+
+        @* anju.s.raj 1/12/2018: Added rzSlider Control for Question5 *@
+        <div class="col-md-offset-1 col-md-11 margin-top margin-bottom">
+            @*<label id="lblQuestion5StronglyAgree" class="col-md-1" style="font-size:medium">Strongly Disagree</label>
+                <input id="rangeQuestion5" type="range" min="0" max="5" value="0" class="col-md-10" style="width:80%">
+                <label id="lblQuestion5StronglyDisagree" class="col-md-1" style="font-size:medium;align-content:flex-end">Strogly Agree</label>*@
+            <rzslider class="with-legend"
+                      rz-slider-bind="slider_ticks_legend.value"
+                      rz-slider-model="question5"
+                      rz-slider-options="slider_ticks_legend.options"></rzslider>
+            <input id="rangeQuestion5" type="text" ng-model="question5" class="hide" />
+            @Html.HiddenFor(Model => Model.Question5)
+        </div>
+
+        <div class="row" style="margin-top:50px;">
+            <label id="lblQuestionID6" class="col-md-1" style="font-size:medium">6</label>
+            <label id="lblQuestionDescription6" class="col-md-11" style="font-size:medium ;">Liked most about the workshop</label>
+        </div>
+        <div class="col-md-offset-1 col-md-11 editor-field" style="margin-top:10px;">
+            <div>
+                @*<a href="#" id="btnaddQ6" onclick="AddRow(this)">Add Row</a>*@
+                <input id="btnaddQ6" value="Add Row" type="button" class="btn-link" onclick="AddRow(this)" />
+            </div>
+            <table id="tblQn6" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr class="hideThis">
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                    <td><input id="btnRemove" type="button" onclick="deleteRow(this)" value="-" class="btn btn-default btn-sm col-md-offset-1" /></td>
+                </tr>
+            </table>
+            @Html.HiddenFor(Model => Model.Question6)
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <label id="lblQuestionID7" class="col-md-1" style="font-size:medium;margin-top:20px;">7</label>
+            <label id="lblQuestionDescription7" class="col-md-11" style="font-size:medium ;margin-top:20px;">Liked least about the workshop</label>
+        </div>
+        <div class="col-md-offset-1 col-md-11 editor-field" style="margin-top:10px;">
+            <div>
+                <input id="btnaddQ7" value="Add Row" type="button" class="btn-link" onclick="AddRow(this)" />
+            </div>
+            <table id="tblQn7" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr class="hideThis">
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                    <td><input id="btnRemove" type="button" onclick="deleteRow(this)" value="-" class="btn btn-default btn-sm col-md-offset-1" /></td>
+                </tr>
+            </table>
+            @Html.HiddenFor(Model => Model.Question7)
+        </div>
+
+        <div class="row" style="margin-top:20px;">
+            <label id="lblQuestionID8" class="col-md-1" style="font-size:medium;margin-top:20px;">8</label>
+            <label id="lblQuestionDescription8" class="col-md-11" style="font-size:medium ;margin-top:20px;">What recommendations would you make to improve future workshops?</label>
+        </div>
+        <div class="col-md-offset-1 col-md-11 editor-field" style="margin-top:10px;">
+            <div>
+                <input id="btnaddQ8" value="Add Row" type="button" class="btn-link" onclick="AddRow(this)" />
+            </div>
+            <table id="tblQn8" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr class="hideThis">
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                    <td><input id="btnRemove" type="button" onclick="deleteRow(this)" value="-" class="btn btn-default btn-sm col-md-offset-1" /></td>
+                </tr>
+            </table>
+            @Html.HiddenFor(Model => Model.Question8)
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <label id="lblQuestionID9" class="col-md-1" style="font-size:medium;margin-top:20px;">9</label>
+            <label id="lblQuestionDescription9" class="col-md-11" style="font-size:medium ;margin-top:20px;">Comments</label>
+        </div>
+        <div class="col-md-offset-1 col-md-11 editor-field" style="margin-top:10px;">
+            <div>
+                <input id="btnaddQ9" value="Add Row" type="button" class="btn-link" onclick="AddRow(this)" />
+            </div>
+            <table id="tblQn9" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr>
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                </tr>
+                <tr class="hideThis">
+                    <td><input id="Comment" type="text" class="form-control input-sm input-longTb" /></td>
+                    <td><input id="btnRemove" type="button" onclick="deleteRow(this)" value="-" class="btn btn-default btn-sm col-md-offset-1" /></td>
+                </tr>
+            </table>
+            @Html.HiddenFor(Model => Model.Question9)
+        </div>
+        <div class="row" style="margin-top:50px;">
+            <div class="col-md-12">
+                <input type="submit" value="Submit" onclick="validation();" class="btn btn-default col-md-offset-1" style="margin-top:30px;" />
+                <input type="reset" value="Reset" onclick="location.reload();" class="btn btn-default " style="margin-top:30px;" />
+            </div>
+
+        </div>
+
+    </fieldset>
+}
+
+
+@section Scripts{
+
+    <script type="text/javascript">
+
+        //Added by Sony - Function to add textbox and remove button dynamically
+        function AddRow(r) {
+            while (r.tagName.toUpperCase() !== "INPUT") {
+                r = r.parentNode;
+            }
+            var aId = r.id;
+            var tblId = (aId === "btnaddQ6") ? "tblQn6" : ((aId === "btnaddQ7") ? "tblQn7" : ((aId === "btnaddQ8") ? "tblQn8" : "tblQn9"));
+            var table = document.getElementById(tblId);
+            var count = table.rows.length;
+            if (count < 10) {
+                var $tableBody = $('#' + tblId);
+                var $trLast = $tableBody.find("tr:last");
+                var $trNew = $trLast.clone().find("input:text").val("").end().removeAttr("class");
+                $trLast.after($trNew);
+            }
+        }
+        @* apurva.d.sharma 1/22/2018: Added function for SessionID validation *@
+        function validation() {
+            var ddl = document.getElementById("SessionId");
+            if (ddl.options[ddl.selectedIndex].text == "--Select--") {
+                alert("Please select session field");
+                event.preventDefault();
+            }
+            else {
+                confirmSubmit();
+            }
+        }
+
+        @* apurva.d.sharma 1/17/2018: Added function for confirmation  when submit button is clicked *@
+        function confirmSubmit() {
+            if (confirm('Are you sure you want to submit?')) {
+                getValues();
+            }
+            else
+                event.preventDefault();
+
+        }
+
+        //Added by Sony - Function to delete corresponding rows
+        function deleteRow(r) {
+            var rowInd = r.parentNode.parentNode.rowIndex;
+            while (r.tagName.toUpperCase() !== "TABLE") {
+                r = r.parentNode;
+            }
+            var table = document.getElementById(r.id);
+            if (table.rows.length > 1) {
+                table.deleteRow(rowInd);
+            }
+            else {
+                alert("Number of Rows cannot be empty");
+            }
+        }
+
+        function getValues() {
+
+            document.getElementById('Question1').value = document.getElementById("rangeQuestion1").value.toString();
+            document.getElementById('Question2').value = document.getElementById("rangeQuestion2").value.toString();
+            document.getElementById('Question3').value = document.getElementById("rangeQuestion3").value.toString();
+            document.getElementById('Question4').value = document.getElementById("rangeQuestion4").value.toString();
+            document.getElementById('Question5').value = document.getElementById("rangeQuestion5").value.toString();
+
+
+            //Added by Sony
+            for (var k = 6; k < 10; k++) {
+                var tblId = "tblQn" + k;
+                var Qn = "Question" + k;
+                var table = document.getElementById(tblId);
+                var rowLength1 = table.rows.length;
+                var comment1 = ""
+                for (var i = 0; i < rowLength1; i++) {
+                    var cCells1 = table.rows.item(i).cells[0];
+                    if (cCells1.childNodes[0].value !== "") {
+                        comment1 = comment1 + cCells1.childNodes[0].value + "#;#";
+                    }
+                }
+                document.getElementById(Qn).value = (comment1 === "") ? "" : comment1.slice(0, -3);
+            }
+
+        }
+
+    </script>
+    }

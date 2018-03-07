@@ -1,0 +1,39 @@
+﻿/*anju.s.raj 1/12/2018: Added for hiding text box capturing value in rzSlider Control and adding margin in slider control.*/
+.hide {
+    display:none !important;
+}
+.margin-top{
+margin-top:10px;
+}
+.margin-bottom{
+    margin-bottom:20px;
+}
+
+ .input-longTb {
+      min-width: 700px;
+}
+  .btnMargin {
+      margin-left: 422px;
+}
+ .btnMargin2 {
+      margin-left: 0px;
+        }
+
+ .btnMargin3 {
+      margin-left: 10px;
+}
+.hideThis{
+      display:none;
+}
+.dvAccentureBannerBackground
+{
+      background-color: #5F9F9F;
+    width: 200px;
+ 
+}
+.dvHeaderImage {
+    height: 67px !important;
+    width: 175px !important;
+    border-width: 0px;  
+}
+    

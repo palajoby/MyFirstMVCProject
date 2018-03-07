@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Joby's Second";
+}
+@section Scripts
+{
+    
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    }
+<div>
+    <form method="post">
+        <br />
+
+        <br />
+        <h2>Second</h2>
+
+        <input type="text" id="FirstValue" name="FirstValue" data-val="true" data-val-required="*"  />
+        <span class="field-validation-valid" data-valmsg-for="FirstValue" data-valmsg-replace="true"></span>
+        <br />
+        <input type="submit" id="btnSubmit" value="Save" />
+        @if (ViewBag.MailSent == "True")
+        {
+            <div>"Mail Sent"</div>
+        }
+    </form>
+</div>
